@@ -1,0 +1,74 @@
+<div class="episodelist">
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-div-head-niyay">
+        <div class="card-body">
+          <div class="div-head-niyay">
+            <div class="head-niyay">
+              <div class="card-img">
+                <img [src]="book.img_book" />
+              </div>
+              <div class="card-name-book">
+                <h2>ชื่อนิยาย : {{book.name_fiction}}</h2>
+                <p>ประเภทนิยาย : <span *ngFor="let type of book.typebook" class="badge badge-secondary" style="margin-right: 2px;">{{type.name_type}}</span></p>
+                <p>ผู้เเต่ง : {{book.panname}}</p>
+              </div>
+              <div *ngIf="book.id_user">
+                <div class="btn-head-niyay" *ngIf="((user.id_user != undefined) && (user.id_user != book.id_user))">
+                  <button type="button" class="btn btn-success" *ngIf="!checkBookFavor()" (click)="addBookFavor()"><i class="fas fa-plus"></i> ติดตาม</button>
+                  <button type="button" class="btn btn-success" *ngIf="checkBookFavor()" (click)="deleteFavor()"><i class="fas fa-minus-circle"></i> เลิกติดตาม</button>
+                  <button type="button" class="btn btn-danger ml-2" (click)="openReport();"><i class="fas fa-ban"></i> รายงาน</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-12">
+              <i class="fas fa-eye"></i> {{book.view}}
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-12">
+              <div>เนื้อเรื่องย่อ</div>
+              <div class="card card-preview">
+                <div class="card-body">
+                  <!-- {{book.preview}} -->
+                  <div [froalaView]="book.preview"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            episode
+          </div>
+          <div class="card card-episode">
+            <div class="card-body">
+              <div *ngFor="let episode of book.episode; let i = index;" class="episode-list">
+                <a [routerLink]="" (click)="onClickChangePageEpisode(i)">{{episode.name_episode}}</a>
+                <div class="view"><i class="fas fa-eye"></i> {{episode.view}}</div>
+                <hr *ngIf="i+1 < book.episode.length" />
+                <div *ngIf="i+1 == book.episode.length">
+                  <div *ngIf="book.count_episode > i+1">
+                    <hr />
+                    <button type="button" class="btn btn-secondary btn-episode" (click)="loadEpisode();">ตอนเพิ่มเติม</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

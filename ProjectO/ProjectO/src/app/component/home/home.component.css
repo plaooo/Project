@@ -1,0 +1,19 @@
+div.div-card {
+  margin-bottom: 5px;
+}
+
+.card-img img {
+  width: 120px;
+  height: 150px;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+img {
+  vertical-align: middle;
+  padding: 5px;
+}
+
+.card {
+  height: 250px;
+}

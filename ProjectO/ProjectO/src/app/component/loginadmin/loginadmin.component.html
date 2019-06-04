@@ -1,0 +1,42 @@
+<br>
+<br>
+<br>
+<br>
+<div class="wrapper">
+  <div class="page-header">
+    <div class="filter"></div>
+    <div class="container" >
+      <div class="row" >
+        <div class="col-lg-8 col-sm-6 mr-auto ml-auto" >
+          <div class="card card-register" style="width:100%;border:1px solid;">
+            <h3 class="title">Welcome</h3>
+            <!-- <form class="register-form"> -->
+              <label>Email</label>
+              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="far fa-address-card"></i>
+                  </span>
+                </div>
+
+                <input #id type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false">
+              </div>
+
+              <label>Password</label>
+              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-key"></i>
+                  </span>
+                </div>
+                <input #pass type="password" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false">
+              </div>
+              <br>
+              <button class="btn btn-danger btn-block btn-round" (click)="login(id.value,pass.value)">LogIn</button>
+            <!-- </form> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+.div-div-txt-reg{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.register-img {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.register-img img {
+    width: 130px;
+    height: 130px;
+    border: solid 1px #828481;
+    margin-bottom: 15px;
+}
+
+img {
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.div-div-btn-upload{
+    text-align: center;
+}
+
+#div-div-btn-upload-file{
+    display: none;
+}
+
+.div-form{
+    margin-top: 25px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#fname {
+    margin-right: 1%;
+}
+
+#lname{
+    margin-left: 1%;
+}
+
+#btn-submit-regis{
+    width: 100%;
+}
+
+.div-regis{
+    margin-top: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border: solid 1px;
+    background-color: cornsilk;
+}
+
+#btn-upload{
+    width: 130px;
+}

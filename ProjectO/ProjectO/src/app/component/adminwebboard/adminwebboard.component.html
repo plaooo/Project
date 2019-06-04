@@ -1,0 +1,28 @@
+<div style="padding-bottom:1%;background-color:khaki;">
+  <div style="padding-top:1%;padding-left:1%;">
+    <button type="button" class="btn btn-info btn-sm" style="margin-top:1%;margin-right:2%;float:right;width:15%;" (click)="create();">
+      <span class="fas fa-plus" style="padding-right:2%;"></span>สร้างเว็บบอร์ด</button>
+    <h3>เว็บบอร์ด</h3>
+    <h3 style="color:hotpink;">WEBBOARD</h3>
+  </div>
+  <div style="margin-left:2%;border:1px solid black;background-color:ghostwhite;width:96%;">
+    <h3> ประกาศจาก ADMIN</h3>
+    <h4> รายละเอียด แอดมินประกาศ</h4>
+    <div class="กรอบกระทู้แอดมินวนลูป" style="margin-top:2%;margin-bottom:2%;">
+      <div *ngFor="let row of adminType | paginate: { itemsPerPage: 10, currentPage: p }; let i=index;" style="margin-left:2.5%;width:95%;margin-top:1%;margin-bottom:1%;border:1px solid black;background-color:ghostwhite;">
+        <button style="width:100%;background-color:#BEBEBE">
+          <a style="text-decoration: none" (click)="descriptadmin(row.idAdminWebboard);">
+            <div>
+              <h3>{{row.headderWebboard}}</h3>
+              <strong>ผู้ตั้งกระทู้ {{row.userName}}</strong>
+            </div>
+          </a>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div >
+  <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+</div>

@@ -1,0 +1,147 @@
+
+<div class="container">
+    <p-tabView>
+        <p-tabPanel header="จัดการคอมเมนต์นิยาย" leftIcon="pi pi-calendar">
+            <p-dataView #dv [value]="userReport" [paginator]="true" [rows]="5" paginatorPosition="both" filterBy="brand">
+                <ng-template let-userReport pTemplate="listItem">
+                    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+                        <div class="ui-g-12 ui-md-4" style="text-align:center;" *ngIf="userReport.avatar != null">
+                            <img src="http://localhost:9999/img/{{userReport.idUser}}/{{userReport.avatar}}" style="width:200px">
+                        </div>
+                        <div class="ui-g-12 ui-md-4" style="text-align:center;" *ngIf="userReport.avatar == null">
+                            <img src="../../../assets/img/person.png" style="width:200px">
+                        </div>
+                        <div class="ui-g-12 ui-md-8 car-details">
+                            <div class="ui-g">
+                                <div class="ui-g-4 ui-sm-6">ชื่อนิยาย: </div>
+                                <div class="ui-g-8 ui-sm-6">
+                                    <b>{{userReport.name_fiction}}</b>
+                                </div>
+
+                                <div class="ui-g-4 ui-sm-6">ชื่อผู้ถูกรายงาน: </div>
+                                <div class="ui-g-8 ui-sm-6">{{userReport.penname}}</div>
+                                
+                                <div class="ui-g-4 ui-sm-6">Comment: </div>
+                                <div class="ui-g-8 ui-sm-6">
+                                    <textarea pInputTextarea type="text" style="width:100%;resize:none;height:100px;" readonly>{{userReport.collectComment}}</textarea>
+                                    <div style="margin-left:60.5%;">
+                                            <button pButton type="button" style="margin-right:3px;" label="ไม่แบน" icon="pi pi-check" class="ui-button-success" (click)="confirm1(userReport.idUserComment);"></button>
+                                            <button pButton type="button" label="แบน" icon="pi pi-times" class="ui-button-danger" (click)="confirm2(userReport.idUser,userReport.idUserComment);"></button>
+                                        </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-dataView>
+        </p-tabPanel>
+
+        <p-tabPanel header="จัดการคอมเมนต์เว็บบอร์ด" leftIcon="pi pi-calendar">
+            <p-dataView #dv [value]="cwebboard" [paginator]="true" [rows]="5" paginatorPosition="both" filterBy="brand">
+                <ng-template let-cwebboard pTemplate="listItem">
+                    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+                        <div class="ui-g-12 ui-md-4" style="text-align:center;" *ngIf="cwebboard.avatar != null">
+                            <img src="http://localhost:9999/img/{{cwebboard.idUser}}/{{cwebboard.avatar}}" style="width:200px">
+                        </div>
+                        <div class="ui-g-12 ui-md-4" style="text-align:center;" *ngIf="cwebboard.avatar == null">
+                            <img src="../../../assets/img/person.png" style="width:200px">
+                        </div>
+                        <div class="ui-g-12 ui-md-8 car-details">
+                            <div class="ui-g">
+                                <div class="ui-g-4 ui-sm-6">ชื่อ: </div>
+                                <div class="ui-g-8 ui-sm-6">
+                                    <b>{{cwebboard.name}}</b>
+                                </div>
+
+                                <div class="ui-g-4 ui-sm-6">ผู้ถูกรายงาน: </div>
+                                <div class="ui-g-8 ui-sm-6">{{cwebboard.penName}}</div>
+
+                                <div class="ui-g-4 ui-sm-6">Comment: </div>
+                                <div class="ui-g-8 ui-sm-6">
+                                    <textarea pInputTextarea type="text" style="width:100%;resize:none;height:100px;" readonly>{{cwebboard.collectUserWebboard}}</textarea>
+                                    <div style="margin-left:60.5%;">
+                                        <button pButton type="button" style="margin-right:3px;" label="ไม่แบน" icon="pi pi-check" class="ui-button-success" (click)="confirm3(cwebboard.idUserWebboard);"></button>
+                                        <button pButton type="button" label="แบน" icon="pi pi-times" class="ui-button-danger" (click)="confirm4(cwebboard.idUserWebboard);"></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </ng-template>
+            </p-dataView>
+        </p-tabPanel>
+
+        <p-tabPanel header="จัดการเว็บบอร์ด" leftIcon="pi pi-calendar">
+            <p-dataView #dv [value]="admin" [paginator]="true" [rows]="5" paginatorPosition="both" filterBy="brand">
+                <ng-template let-admin pTemplate="listItem">
+                    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+                        <div class="ui-g-12 ui-md-12 car-details">
+                            <div class="ui-g">
+                                <div class="ui-g-2 ui-sm-6">หัวข้อเว็บบอร์ด: </div>
+                                <div class="ui-g-10 ui-sm-6">
+                                    <b>{{admin.headderWebboard}}</b>
+                                </div>
+
+                                <div class="ui-g-2 ui-sm-6">ผู้สร้างเว็บบอร์ด: </div>
+                                <div class="ui-g-10 ui-sm-6">{{admin.penName}}</div>
+
+                                <div class="ui-g-2 ui-sm-6">เนื้อหาที่สร้าง: </div>
+                                <div class="ui-g-10 ui-sm-6">
+                                    <textarea pInputTextarea type="text" style="width:100%;resize:none;height:100px;" readonly>{{admin.collectWebboard}}</textarea>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div style="width:100%;padding-left:90%;">
+
+                            <button pButton type="button" label="ลบโพสต์" icon="pi pi-times" class="ui-button-danger" (click)="confirm5(admin.idWebboard);"></button>
+                        </div>
+
+                    </div>
+                </ng-template>
+            </p-dataView>
+        </p-tabPanel>
+
+        <p-tabPanel header="จัดการนิยาย" leftIcon="pi pi-calendar">
+            <p-dataView #dv [value]="niyay" [paginator]="true" [rows]="5" paginatorPosition="both" filterBy="brand">
+                <ng-template let-niyay pTemplate="listItem">
+                    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+                        <div class="ui-g-12 ui-md-12 car-details">
+                            <div class="ui-g">
+                                <div class="ui-g-2 ui-sm-6">ชื่อนิยาย: </div>
+                                <div class="ui-g-10 ui-sm-6">
+                                    <b>{{niyay.name_fiction}}</b>
+                                </div>
+
+                                <div class="ui-g-2 ui-sm-6">ผู้สร้างนิยาย: </div>
+                                <div class="ui-g-10 ui-sm-6">{{niyay.id_penname_wr}}</div>
+
+                                <div class="ui-g-2 ui-sm-6">ชื่อคนรายงาน: </div>
+                                <div class="ui-g-10 ui-sm-6">{{niyay.id_penname_re}}</div>
+
+                                <div class="ui-g-2 ui-sm-6">สาเหตุรายงาน: </div>
+                                <div class="ui-g-10 ui-sm-6">
+                                    <textarea pInputTextarea type="text" style="width:100%;resize:none;height:100px;" readonly>{{niyay.reportTxt}}</textarea>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div style="width:100%;padding-left:77%;">
+                            <button pButton type="button" label="ไม่ลบนิยาย" icon="pi pi-times" class="ui-button-success" (click)="NoDeleteniyay(niyay.id_book);"></button>
+                            <button pButton type="button" label="ลบนิยาย" icon="pi pi-times" class="ui-button-danger" (click)="Deleteniyay(niyay.email,niyay.id_book);" style="margin-left:2%;"></button>
+                        </div>
+
+                    </div>
+                </ng-template>
+            </p-dataView>
+        </p-tabPanel>
+
+    </p-tabView>
+</div>

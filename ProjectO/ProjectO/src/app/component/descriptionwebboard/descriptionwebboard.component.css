@@ -1,0 +1,12 @@
+.my-pagination /deep/ .ngx-pagination .current{
+    background-color:aqua;
+    color:red;
+}
+.my-pagination /deep/ .ngx-pagination {
+    background-color:dimgray;
+    padding-left: 40%;
+    color:red;
+    width:90%;
+    margin-left:5%;
+    border: 1px solid black;
+}

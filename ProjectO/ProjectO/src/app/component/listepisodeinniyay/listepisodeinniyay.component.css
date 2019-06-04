@@ -1,0 +1,70 @@
+.episodelist {
+  margin-bottom: 20px;
+  margin-top: 25px;
+  border: 2px solid;
+  padding: 10px;
+  /* overflow: auto; */
+  background-color: cornsilk;
+  width: 100%;
+}
+
+.card .card-body {
+  width: 100%;
+}
+
+.card-img {
+  width: 120px;
+  margin-right: 10px;
+  float: left;
+}
+
+.card-img img {
+  width: 120px;
+  height: 150px;
+  border: 1px solid;
+}
+
+img {
+  vertical-align: middle;
+  padding: 5px;
+}
+
+.head-niyay {
+  /* display: flex; */
+  width: 100%;
+}
+
+.card-div-head-niyay{
+  margin-bottom: 10px;
+}
+
+.div-head-niyay{
+  display: flex;
+}
+
+.btn-head-niyay{
+  /* width: 30%; */
+  float: right;
+}
+
+.card-name-book{
+  padding-top: 10px;
+  float: left;
+}
+
+.view {
+  float: right;
+}
+
+.episode-list{
+  width: 100%;
+  display: block;
+}
+
+.btn-episode {
+  width: 100%;
+}
+
+.card-preview, .card-episode{
+  margin-top: 15px;
+}

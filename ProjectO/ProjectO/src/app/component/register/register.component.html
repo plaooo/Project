@@ -1,0 +1,72 @@
+<div class="div-regis">
+  <div class="div-div-txt-reg">
+    <h2>Register</h2>
+  </div>
+  <div class="register-img">
+    <img [src]="imagePreview" />
+  </div>
+  <div class="div-div-btn-upload">
+    <button type="file" class="btn btn-success" (click)="file.click();" id="btn-upload">
+      <i class="fas fa-camera">
+      </i> upload
+    </button>
+    <input type="file" id="div-div-btn-upload-file" #file (change)="changeFile($event);" />
+  </div>
+
+  <div class="div-form">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="material-icons">
+            account_box
+          </i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="firstname" aria-label="firstname" id="fname" [(ngModel)]="user.name">
+      <input type="text" class="form-control" placeholder="lastname" aria-label="lastname" id="lname" [(ngModel)]="user.lastname">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="material-icons">
+            calendar_today
+          </i></span>
+      </div>
+      <input type="date" class="form-control" [(ngModel)]="user.birthday">
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="material-icons">
+            create
+          </i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="นามปากกา" [(ngModel)]="user.panname">
+    </div>
+    <small class="text-danger">*ตัวอย่างการกรอก email examble@gmail.com</small>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="material-icons">
+            mail_outline
+          </i></span>
+      </div>
+      <input type="email" class="form-control" placeholder="email" aria-label="email" [(ngModel)]="user.email">
+    </div>
+    <small class="text-danger">*password อย่างน้อย 8 ตัว ประกอบไปด้วยตัวอักษร และตัวเลขอย่างน้อย 1 ตัว</small>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="material-icons">
+            https
+          </i></span>
+      </div>
+      <input type="password" class="form-control" placeholder="password" aria-label="password" [(ngModel)]="user.password">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="material-icons">
+            https
+          </i></span>
+      </div>
+      <input type="password" class="form-control" placeholder="confirm password" aria-label="password" [(ngModel)]="cPass">
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" id="btn-submit-regis" (click)="onClickService();">Register</button>
+    </div>
+  </div>
+</div>

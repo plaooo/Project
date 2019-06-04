@@ -1,0 +1,29 @@
+<div class="div-list-your-niyay">
+  <div class="div-main">
+    <div class="card">
+      <div class="card-header">
+        นิยายที่ติดตาม
+      </div>
+      <div class="card-body">
+        <div *ngFor="let book of books; let i = index">
+          <div class="card-body-niyay" *ngIf="i%2==0" style="float: left;">
+            <div class="card-img">
+              <img [src]="book.img_book" (click)="clickChangePage(book.id_book)" />
+            </div>
+            <div class="card-name-fiction">
+              {{book.name_fiction}}
+            </div>
+          </div>
+          <div class="card-body-niyay" *ngIf="i%2==1" style="float: right;">
+            <div class="card-img">
+              <img [src]="book.img_book" (click)="clickChangePage(book.id_book)" />
+            </div>
+            <div class="card-name-fiction">
+              {{book.name_fiction}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,260 @@
+
+<div class="container">
+    <p-tabView>
+
+        <p-tabPanel header="วันนี้" leftIcon="pi pi-calendar">
+            <div *ngIf="bviewday">
+                <div *ngFor="let row of viewday" class="day" style="width:100%;border-style: solid;">
+                    <div class="story">
+                        <h3>ผู้ชมดูมากที่สุดในวันนี้</h3>
+                    </div>
+                    <div style="margin-top:1%" *ngIf="row.imgBook != null">
+                        <img style="width:360px;margin-left: 33%" src="http://localhost:9999/imagebook/{{row.idBook}}/{{row.imgBook}}">
+                    </div>
+                    <div style="margin-top:1%" *ngIf="row.imgBook == null">
+                        <img style="width:360px;margin-left: 33%" src="./../../assets/img/book.png">
+                    </div>
+                    <div class="story" style="width:95%;">
+                        <h3>นิยายเรื่อง {{ row.nameFiction}}</h3>
+                    </div>
+                    <div class="icons">
+                        <h3> View ที่ได้วันนี้
+                            <span class="far fa-eye"> {{ row.sum}}</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!bviewday" class="day" style="width:100%;border-style: solid;">
+                <div class="story" style="width:95%;">
+                    <h1 style="text-align:center;">ไม่มีนิยายเรื่องใดถูกสร้างและเข้าดูในวันนี้</h1>
+                </div>
+            </div>
+
+            <!-- <div *ngIf="blikeday">
+                <div *ngFor="let row of likeday" class="day" style="width:100%;border-style: solid;">
+                    <div class="story">
+                        <h3>ผู้ชมชอบที่สุดในวันนี้</h3>
+                    </div>
+                    <div style="margin-top:1%">
+                        <img style="width:360px;margin-left: 33%" src=".\assets\img\login-image.jpg">
+                    </div>
+                    <div class="story" style="width:95%;">
+                        <h3>นิยายเรื่อง {{ row.nameFiction}}</h3>
+                    </div>
+                    <div class="icons">
+                        <h4> Like ที่ได้วันนี้
+                            <span class="far fa-thumbs-up"> {{ row.count}}</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!blikeday" class="day" style="width:100%;border-style: solid;">
+                <div class="story" style="width:95%;">
+                    <h1 style="text-align:center;">ไม่มีนิยายเรื่องใดถูก Like ในวันนี้</h1>
+                </div>
+            </div> -->
+
+            <div *ngIf="bcommentday">
+                <div *ngFor="let row of commentday" class="day" style="width:100%;border-style: solid;">
+                    <div class="story">
+                        <h3>ผู้ชมพูดถึงมากที่สุดในวันนี้</h3>
+                    </div>
+                    <div style="margin-top:1%" *ngIf="row.imgBook != null">
+                        <img style="width:360px;margin-left: 33%" src="http://localhost:9999/imagebook/{{row.idBook}}/{{row.imgBook}}">
+                    </div>
+                    <div style="margin-top:1%" *ngIf="row.imgBook == null">
+                        <img style="width:360px;margin-left: 33%" src="./../../assets/img/book.png">
+                    </div>
+                    <div class="story" style="width:95%;">
+                        <h3>นิยายเรื่อง {{ row.nameFiction}}</h3>
+                    </div>
+                    <div class="icons">
+                        <h3> Comment ที่ได้วันนี้
+                            <span class="far fa-comment-dots"> {{ row.count}}</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!bcommentday" class="day" style="width:100%;border-style: solid;">
+                <div class="story" style="width:95%;">
+                    <h1 style="text-align:center;">ไม่มีนิยายเรื่องใดถูก Comment ในวันนี้</h1>
+                </div>
+            </div>
+        </p-tabPanel>
+
+        <p-tabPanel header="เดือนนี้" leftIcon="pi pi-calendar">
+
+                <div *ngIf="bviewmonth">
+                        <div *ngFor="let row of viewmonth" class="day" style="width:100%;border-style: solid;">
+                            <div class="story">
+                                <h3>ผู้ชมดูมากที่สุดในเดือนนี้</h3>
+                            </div>
+                            <div style="margin-top:1%" *ngIf="row.imgBook != null">
+                                <img style="width:360px;margin-left: 33%" src="http://localhost:9999/imagebook/{{row.idBook}}/{{row.imgBook}}">
+                            </div>
+                            <div style="margin-top:1%" *ngIf="row.imgBook == null">
+                                <img style="width:360px;margin-left: 33%" src="./../../assets/img/book.png">
+                            </div>
+                            <div class="story" style="width:95%;">
+                                <h3>นิยายเรื่อง {{row.nameFiction}}</h3>
+                            </div>
+                            <div class="icons">
+                                <h3> View ที่ได้ในเดือนนี้
+                                    <span class="far fa-eye"> {{row.sum}}</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div *ngIf="!bviewmonth" class="day" style="width:100%;border-style: solid;">
+                        <div class="story" style="width:95%;">
+                            <h1 style="text-align:center;">ไม่มีนิยายเรื่องใดถูกสร้างและเข้าดูในเดือนนี้</h1>
+                        </div>
+                    </div>
+
+            <!-- <div *ngIf="blikemonth">
+                <div *ngFor="let row of likemonth" class="day" style="width:100%;border-style: solid;">
+                    <div class="story">
+                        <h3>ผู้ชมดูชอบมากที่สุดในเดือนนี้</h3>
+                    </div>
+                    <div style="margin-top:1%">
+                        <img style="width:360px;margin-left: 33%" src=".\assets\img\login-image.jpg">
+                    </div>
+                    <div class="story" style="width:95%;">
+                        <h3>นิยายเรื่อง {{row.nameFiction}}</h3>
+                    </div>
+                    <div class="icons">
+                        <h4> ยอดไลค์ที่ได้ในเดือนนี้
+                            <span class="far fa-thumbs-up"> {{row.count}}</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!blikemonth" class="day" style="width:100%;border-style: solid;">
+                <div class="story" style="width:95%;">
+                    <h1 style="text-align:center;">ไม่มีนิยายเรื่องใดถูก Like ในเดือนนี้</h1>
+                </div>
+            </div> -->
+
+            <div *ngIf="bcommentmonth">
+                    <div *ngFor="let row of commentmonth" class="day" style="width:100%;border-style: solid;">
+                        <div class="story">
+                            <h3>ผู้ชมพูดถึงมากที่สุดในเดือนนี้</h3>
+                        </div>
+                        <div style="margin-top:1%" *ngIf="row.imgBook != null">
+                            <img style="width:360px;margin-left: 33%" src="http://localhost:9999/imagebook/{{row.idBook}}/{{row.imgBook}}">
+                        </div>
+                        <div style="margin-top:1%" *ngIf="row.imgBook == null">
+                            <img style="width:360px;margin-left: 33%" src="./../../assets/img/book.png">
+                        </div>
+                        <div class="story" style="width:95%;">
+                            <h3>นิยายเรื่อง {{row.nameFiction}}</h3>
+                        </div>
+                        <div class="icons">
+                            <h3> Comment ที่ได้ในเดือนนี้
+                                <span class="far fa-comment-dots"> {{row.count}}</span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+    
+                <div *ngIf="!bcommentmonth" class="day" style="width:100%;border-style: solid;">
+                    <div class="story" style="width:95%;">
+                        <h1 style="text-align:center;">ไม่มีนิยายเรื่องใดถูก Comment ในเดือนนี้</h1>
+                    </div>
+                </div>            
+        </p-tabPanel>
+
+        <p-tabPanel header="ปีนี้" leftIcon="pi pi-calendar">
+
+                <div *ngIf="bviewyear">
+                        <div *ngFor="let row of viewyear" class="day" style="width:100%;border-style: solid;">
+                            <div class="story">
+                                <h3>ผู้ชมดูมากที่สุดในปีนี้</h3>
+                            </div>
+                            <div style="margin-top:1%" *ngIf="row.imgBook != null">
+                                <img style="width:360px;margin-left: 33%" src="http://localhost:9999/imagebook/{{row.idBook}}/{{row.imgBook}}">
+                            </div>
+                            <div style="margin-top:1%" *ngIf="row.imgBook == null">
+                                <img style="width:360px;margin-left: 33%" src="./../../assets/img/book.png">
+                            </div>
+                            <div class="story" style="width:95%;">
+                                <h3>นิยายเรื่อง {{ row.nameFiction}}</h3>
+                            </div>
+                            <div class="icons">
+                                <h4> View ที่ได้ในปีนี้
+                                    <span class="far fa-eye"> {{ row.sum}}</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div *ngIf="!bviewyear" class="day" style="width:100%;border-style: solid;">
+                        <div class="story" style="width:95%;">
+                            <h1 style="text-align:center;">ไม่มีนิยายเรื่องใดถูก View ในปีนี้</h1>
+                        </div>
+                    </div>
+
+            <!-- <div *ngIf="blikeyear">
+                <div *ngFor="let row of likeyear" class="day" style="width:100%;border-style: solid;">
+                    <div class="story">
+                        <h3>ผู้ชมชอบมากที่สุดในปีนี้</h3>
+                    </div>
+                    <div style="margin-top:1%">
+                        <img style="width:360px;margin-left: 33%" src=".\assets\img\login-image.jpg">
+                    </div>
+                    <div class="story" style="width:95%;">
+                        <h3>นิยายเรื่อง {{ row.nameFiction}}</h3>
+                    </div>
+                    <div class="icons">
+                        <h4> ยอดไลค์ที่ได้ในปีนี้
+                            <span class="far fa-thumbs-up"> {{ row.count}}</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!blikeyear" class="day" style="width:100%;border-style: solid;">
+                <div class="story">
+                    <h3>ผู้ชมชอบมากที่สุดในปีนี้</h3>
+                </div>
+                <div class="story" style="width:95%;">
+                    <h1 style="text-align:center;">ไม่มีนิยายเรื่องใดถูก Like ในปีนี้</h1>
+                </div>
+            </div> -->
+
+            <div *ngIf="bcommentyear">
+                    <div *ngFor="let row of commentyear" class="day" style="width:100%;border-style: solid;">
+                        <div class="story">
+                            <h3>ผู้ชมพูดถึงมากที่สุดในปีนี้</h3>
+                        </div>
+                        <div style="margin-top:1%" *ngIf="row.imgBook != null">
+                            <img style="width:360px;margin-left: 33%" src="http://localhost:9999/imagebook/{{row.idBook}}/{{row.imgBook}}">
+                        </div>
+                        <div style="margin-top:1%" *ngIf="row.imgBook == null">
+                            <img style="width:360px;margin-left: 33%" src="./../../assets/img/book.png">
+                        </div>
+                        <div class="story" style="width:95%;">
+                            <h3>นิยายเรื่อง {{ row.nameFiction}}</h3>
+                        </div>
+                        <div class="icons">
+                            <h4> Comment ที่ได้ในปีนี้
+                                <span class="far fa-eye"> {{ row.count}}</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+    
+                <div *ngIf="!bviewyear" class="day" style="width:100%;border-style: solid;">
+                    <div class="story" style="width:95%;">
+                        <h1 style="text-align:center;">ไม่มีนิยายเรื่องใดถูก Comment ในปีนี้</h1>
+                    </div>
+                </div>
+        </p-tabPanel>
+
+    </p-tabView>
+</div>

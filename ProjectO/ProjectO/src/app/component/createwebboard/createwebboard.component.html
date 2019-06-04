@@ -1,0 +1,44 @@
+<div style="padding-bottom:1%;background-color:khaki;">
+  <div style="padding-top:1%;padding-left:1%;">
+    <h1 style="color:tomato;text-align:center;">สร้างเว็บบอร์ด</h1>
+  </div>
+  <div style="margin-left:15%;border:1px solid black;background-color:ghostwhite;width:70%">
+    <div class="row" style="margin-top:1%;">
+      <div class="col">
+        <h4 style="padding-left:40%">ชื่อหัวข้อเว็บบอร์ด</h4>
+      </div>
+      <div class="col-6">
+        <input #head type="text" class="form-control" placeholder="กรอกชื่อหัวข้อ" style="width:80%">
+      </div>
+    </div>
+    <div class="row" style="margin-top:1%;">
+      <div class="col">
+        <h4 style="padding-left:40%;">ประเภทหัวข้อ</h4>
+      </div> 
+      <div class="col-6">
+        <select class="form-control" id="exampleFormControlSelect1" style="width:80%" [(ngModel)]="type">
+          <option value="0">เลือกประเภทเว็บบอร์ด</option>
+          <option value="1">ห้องไม่ลับของ นักเขียน นักแปล</option>
+          <option value="2">ห้อง นิยาย&การ์ตูน</option>
+          <option value="3">พูดคุยเรื่องรักๆ</option>
+        </select>
+      </div>
+    </div>
+    <div class="row" style="margin-top:1%;">
+      <div class="col">
+        <h4 style="padding-left:40%;">เนื้อหา</h4>
+      </div>
+      <div class="col-6">
+        <textarea #collect pInputTextarea type="text" style="width:80%;resize:none;height:100px;"></textarea>
+      </div>
+    </div>
+    <div class="row" style="margin-top:1%;">
+      <div class="col">
+        <button style="width:100%;" type="button" class="btn btn-success btn-sm" (click)="CreateWeb(head.value,collect.value)">
+          <span class="fas fa-plus"></span>
+          <span style="color:yellow;padding-left:2%;">Submit</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

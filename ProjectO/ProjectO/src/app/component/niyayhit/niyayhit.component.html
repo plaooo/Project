@@ -1,0 +1,132 @@
+<div class="div-niyayhit">
+  <div class="row">
+    <div class="col-3" style="text-align: center;">
+      <!-- <h2>นิยายฮิต</h2> -->
+      <img style="height: 100%; width: 100%;" src="../../../assets/img/hit.png" />
+    </div>
+    <div class="col-9">
+      <div class="row">
+        <div class="col-12">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">ประเภท</span>
+            </div>
+            <select class="form-control" id="exampleFormControlSelect1" (change)="searchBook()"
+              [(ngModel)]="searchtype">
+              <option value="0">ทั้งหมด</option>
+              <option *ngFor="let typebook of typebooks" [value]="typebook.id_type">{{typebook.name_type}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <!-- <button type="button" class="btn btn-success" id="btn-search"><i class="fas fa-search"></i></button> -->
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">ค้นหา</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search" (keyup)="searchBook();"
+              [(ngModel)]="searchtxt">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
+            </div>
+            <select class="form-control" id="year" (change)="searchBook($event);">
+              <option value="12">ทั้งหมด</option>
+              <option *ngFor="let year of mL; let i = index;" [value]="i">{{year}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <hr />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div *ngFor="let book of books_hit | paginate: { itemsPerPage: 10, currentPage: p }; let i = index;">
+        <div class="div-book-left card" *ngIf="i % 2 == 0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4">
+                <div class="card-img">
+                  <img [src]="book.img_book" (click)="onClickService(book)" />
+                </div>
+              </div>
+              <div class="col-8">
+                {{book.name_fiction}}
+                <p>{{book.panname}} | <span *ngFor="let type of book.typebook" class="badge badge-secondary"
+                    style="margin-right: 2px">{{type.name_type}}</span></p>
+                <hr>
+                <div *ngFor="let episode of book.episode">
+                  {{episode.name_episode}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <hr>
+                <div class="row">
+                  <div class="col-6">
+                    <i class="fas fa-eye"></i> {{book.view}}
+                  </div>
+                  <div class="col-6">
+                    <i class="fas fa-calendar-alt"></i> {{book.create_day}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="div-book-right card" *ngIf="i % 2 == 1">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4">
+                <div class="card-img">
+                  <img [src]="book.img_book" (click)="onClickService(book)" />
+                </div>
+              </div>
+              <div class="col-8">
+                {{book.name_fiction}}
+                <p>{{book.panname}} | <span *ngFor="let type of book.typebook" class="badge badge-secondary"
+                    style="margin-right: 2px">{{type.name_type}}</span></p>
+                <hr>
+                <div *ngFor="let episode of book.episode">
+                  {{episode.name_episode}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <hr>
+                <div class="row">
+                  <div class="col-6">
+                    <i class="fas fa-eye"></i> {{book.view}}
+                  </div>
+                  <div class="col-6">
+                    <i class="fas fa-calendar-alt"></i> {{book.create_day}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col" style="text-align: center;">
+      <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+    </div>
+  </div>
+</div>

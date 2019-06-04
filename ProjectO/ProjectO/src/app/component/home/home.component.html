@@ -1,0 +1,133 @@
+<!-- <p-toast [style]="{marginTop: '80px'}"></p-toast> -->
+
+<div style="margin-top: 25px;">
+  <p-carousel headerText="แนะนำ" [value]="guidebooks">
+    <ng-template let-guidebook pTemplate="item">
+      <div class="ui-grid ui-grid-responsive" style="text-align: center;">
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-12"><img src="{{guidebook.img_book}}" width="60" height="60"></div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-6">ชื่อหนังสือ</div>
+          <div class="ui-grid-col-6">{{guidebook.name_fiction}}</div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-6">ผู้เเต่ง</div>
+          <div class="ui-grid-col-6">{{guidebook.panname}}</div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-6"><i class="fas fa-eye"></i></div>
+          <div class="ui-grid-col-6">{{guidebook.view}}</div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-12">
+            <button type="button" pButton icon="pi pi-search" (click)="onClickService(guidebook)"></button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
+
+<div style="width: 100%; margin-top: 25px;">
+  <div style="width: 49%; background-color: cornsilk; position: relative; border-style: solid; padding: 10px; margin-bottom: 20px;"
+    class="float-left">
+    <h2>นิยายฮิต</h2>
+    <div style="overflow: hidden; word-break:break-all;">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">ประเภท</span>
+        </div>
+        <select class="form-control" id="exampleFormControlSelect1" (change)="onChangeTypeView($event)">
+          <option value="0">ทั้งหมด</option>
+          <option *ngFor="let typebook of typebooks" [value]="typebook.id_type">{{typebook.name_type}}</option>
+        </select>
+      </div>
+      <hr />
+      <div *ngFor="let book of books_viewfilter" class="div-card">
+        <div class="card" *ngIf="book.typebook.length > 0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4">
+                <div class="card-img">
+                  <img [src]="book.img_book" (click)="onClickService(book);" />
+                </div>
+              </div>
+              <div class="col-8">
+                {{book.name_fiction}}
+                <p>{{book.panname}} | <span *ngFor="let type of book.typebook" class="badge badge-secondary" style="margin-right: 2px;">{{type.name_type}}</span></p>
+                <hr>
+                <div *ngFor="let episode of book.episode">
+                  {{episode.name_episode}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <hr>
+                <div class="row">
+                  <div class="col-6">
+                    <i class="fas fa-eye"></i> {{book.view}}
+                  </div>
+                  <div class="col-6">
+                    <i class="fas fa-calendar-alt"></i> {{book.create_day}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="width: 49%; background-color:cornsilk; position: relative; border-style: solid; padding: 10px; margin-bottom: 20px;"
+    class="float-right">
+    <h2>นิยายล่าสุด</h2>
+    <div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">ประเภท</span>
+        </div>
+        <select class="form-control" id="exampleFormControlSelect1" (change)="onChangeType($event)">
+          <option value="0">ทั้งหมด</option>
+          <option *ngFor="let typebook of typebooks" [value]="typebook.id_type">{{typebook.name_type}}</option>
+        </select>
+      </div>
+      <hr />
+      <div *ngFor="let book of books_newfilter" class="div-card">
+        <div class="card" *ngIf="book.typebook.length > 0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4">
+                <div class="card-img">
+                  <img [src]="book.img_book" (click)="onClickService(book);" />
+                </div>
+              </div>
+              <div class="col-8">
+                {{book.name_fiction}}
+                <p>{{book.panname}} | <span *ngFor="let type of book.typebook" class="badge badge-secondary" style="margin-right: 2px">{{type.name_type}}</span></p>
+                <hr>
+                <div *ngFor="let episode of book.episode">
+                  {{episode.name_episode}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <hr>
+                <div class="row">
+                  <div class="col-6">
+                    <i class="fas fa-eye"></i> {{book.view}}
+                  </div>
+                  <div class="col-6">
+                    <i class="fas fa-calendar-alt"></i> {{book.create_day}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

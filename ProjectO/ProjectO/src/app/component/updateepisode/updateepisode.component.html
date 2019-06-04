@@ -1,0 +1,30 @@
+<div class="div">
+  <div class="div-main">
+    <div class="card">
+      <div class="card-header">
+        episode
+      </div>
+      <div class="card-body">
+        <div *ngIf="show == 0">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">ชื่อตอน</span>
+            </div>
+            <input type="text" class="form-control" placeholder="ตัวอย่าง บทที่ 1 ตอนแรก" [(ngModel)]="episode.name_episode">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">เนื้อหา</label>
+            <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="episode.content"></textarea> -->
+            <div [froalaEditor]='options' [(froalaModel)]="episode.content"></div>
+          </div>
+          <div style="width: 100%;">
+            <button type="button" class="btn btn-success" (click)="updataEpisode()" id="btn-update">แก้ไข</button>
+          </div>
+        </div>
+        <div *ngIf="show == 1">
+          <button type="button" class="btn btn-primary w-100" (click)="backToYourListNiyay()">กลับไปหน้านิยายของคุณ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

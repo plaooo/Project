@@ -1,0 +1,97 @@
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="container">
+    <!-- Navbar brand -->
+    <a id="a-logo" class="navbar-brand" routerLink="/home"><img id="img-logo" src="../../../assets/img/LOGO.png" /></a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+      aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav" [ngbCollapse]="isCollapsed">
+
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a class="nav-link" routerLink="/home"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a class="nav-link" routerLink="/home/niyayhit"><i class="fas fa-book-reader"></i> นิยายติดอันดับ</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a class="nav-link" routerLink="/home/niyaynew"><i class="fas fa-book"></i> นิยายล่าสุด</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a class="nav-link" routerLink="/home/webboard"><i class="fas fa-comments"></i> WEBBOARD</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a class="nav-link" routerLink="/home/search"><i class="fas fa-search"></i> Search</a>
+        </li>
+      </ul>
+      <!-- Links -->
+
+      <form class="form-inline">
+        <div class="md-form my-0" *ngIf="!status_login">
+          <button type="button" class="btn btn-light" (click)="open(content);">Login / Register</button>
+        </div>
+        <div class="md-form my-0" *ngIf="status_login">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-light" id="dropdownBasic1" ngbDropdownToggle> {{user.panname}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item" (click)="onClickChangePage('profile');"><i class="fas fa-user"></i> Profile</button>
+              <button class="dropdown-item" (click)="onClickChangePage('editprofile');"><i class="fas fa-user-edit"></i> Edit Profile</button>
+              <button class="dropdown-item" (click)="logout();"><i class="fas fa-lock"></i> Logout</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Collapsible content -->
+  </div>
+
+
+</nav>
+<!--/.Navbar-->
+
+<!-- Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Login</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="nav-div-login">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="material-icons">
+              email
+            </i></span>
+        </div>
+        <input  type="email" class="form-control" placeholder="Email" aria-label="Email" [(ngModel)]="user.email">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="material-icons">
+              https
+            </i></span>
+        </div>
+        <input type="password" class="form-control" placeholder="Password" aria-label="Password" [(ngModel)]="user.password">
+      </div>
+      <div class="nav-div-login-btn">
+        <button type="button" class="btn btn-primary" (click)="login();">Login</button>
+      </div>
+      <div class="nav-div-reg-btn">
+        <button type="button" class="btn btn-success" (click)="changePageRegister();">Register</button>
+      </div>
+      <div class="nav-div-forg-btn">
+        <button type="button" class="btn btn-warning" (click)="forgotpass();">forgot password</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

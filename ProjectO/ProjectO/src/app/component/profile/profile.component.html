@@ -1,0 +1,30 @@
+<div style="margin-top: 25px;">
+  <div class="border-div">
+    <div class="menu-div">
+      <div class="img-name-div">
+        <div class="register-img">
+          <img [src]="imgProfile" />
+        </div>
+        <div class="name-img">
+          <h4>{{user.name}} {{user.lastname}}</h4><br>
+          <h5>{{user.panname}}</h5>
+        </div>
+      </div>
+      <hr>
+      <div style="margin-bottom: 15px;">
+        <div class="main-menu" (click)="onClickChangePage('listyourniyay');">
+          นิยายที่สร้าง
+        </div>
+        <div class="main-menu" (click)="onClickChangePage('createyourniyay');">
+          สร้างนิยาย
+        </div>
+        <div class="main-menu" (click)="onClickChangePage('yourbookfavor');">
+          นิยายที่ติดตาม
+        </div>
+      </div>
+    </div>
+    <div class="main-menu-select">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

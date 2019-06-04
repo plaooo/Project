@@ -1,0 +1,46 @@
+<div class="div-regis">
+  <div class="div-div-txt-reg">
+    <h2>แก้ไข Profile</h2>
+  </div>
+  <div class="register-img">
+    <img [src]="imagePreview" />
+  </div>
+  <div class="div-div-btn-upload">
+    <button type="file" class="btn btn-success" (click)="file.click();" id="btn-upload">
+      <i class="fas fa-camera">
+      </i> upload
+    </button>
+    <input type="file" id="div-div-btn-upload-file" #file (change)="changeFile($event);" />
+  </div>
+
+  <div class="div-form">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="material-icons">
+            account_box
+          </i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="firstname" aria-label="firstname" id="fname" [(ngModel)]="name">
+      <input type="text" class="form-control" placeholder="lastname" aria-label="lastname" id="lname" [(ngModel)]="lastname">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="material-icons">
+            calendar_today
+          </i></span>
+      </div>
+      <input type="date" class="form-control" [(ngModel)]="birthday">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="material-icons">
+            create
+          </i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="นามปากกา" [(ngModel)]="panname">
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" id="btn-submit-regis" (click)="onClickService();">แก้ไข</button>
+    </div>
+  </div>
+</div>

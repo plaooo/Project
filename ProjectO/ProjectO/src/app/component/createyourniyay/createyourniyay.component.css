@@ -1,0 +1,85 @@
+.div-create-niyay {
+  margin-top: 25px;
+  margin-left: 20px;
+  /* margin-right: 20px; */
+  width: 100%;
+}
+
+.div-main {
+  /* border: 2px solid; */
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+#card {
+  width: 100%;
+}
+
+.card-img {
+  width: 120px;
+  height: 150px;
+  margin-right: 10px;
+}
+
+.card-img:hover {
+  background: rgba(0, 0, 0, .3);
+}
+
+.card-img img {
+  width: 120px;
+  height: 150px;
+  border: 1px solid;
+}
+
+img {
+  vertical-align: middle;
+  padding: 5px;
+}
+
+.img-book-name-book {
+  display: flex;
+  width: 100%;
+}
+
+#input-group-name {
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.book-info-name {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.book-info #text-area-book-info {
+  height: 400px;
+}
+
+.book-info {
+  margin-bottom: 10px;
+  overflow: scroll;
+}
+
+.book-name {
+  width: 100%;
+}
+
+.book-info-btn,
+button {
+  width: 100%;
+}
+
+.book-name-text {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.btn-upload {
+  width: 100%;
+}
+
+.span-exit{
+  margin-left: 4px;
+  cursor: pointer;
+}

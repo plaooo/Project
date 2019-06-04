@@ -1,0 +1,27 @@
+<div class="div">
+  <div class="div-main">
+    <div class="card">
+      <div class="card-header">
+        episode list
+      </div>
+      <div class="card-body">
+        <div *ngIf="show == 0">
+          <button class="btn btn-primary" (click)="clickChangeComponent()" id="btn-create-episode">add episode</button>
+          <hr>
+          <div *ngIf="episodes">
+            <div *ngFor="let episode of episodes; let i = index">
+              <div class="episode-list">
+                <a [routerLink]="['../updateepisode', episode.id_episode]">{{episode.name_episode}}</a>
+                <div class="view"><i class="fas fa-eye"></i> {{episode.view}}</div>
+              </div>
+              <hr *ngIf="i+1 != episodes.length ">
+            </div>
+          </div>
+        </div>
+        <div *ngIf="show == 1">
+          <button type="button" class="btn btn-primary w-100" (click)="backToYourListNiyay()">กลับไปหน้านิยายของคุณ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

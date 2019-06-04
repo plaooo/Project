@@ -1,0 +1,75 @@
+<div style="padding-bottom:1%;background-color:khaki;">
+    <div style="padding-top:1%;padding-left:1%;">
+        <button *ngIf="user.id_user" type="button" class="btn btn-info btn-sm" style="margin-top:1%;margin-right:2%;float:right;width:15%;" (click)="create();">
+            <span class="fas fa-plus" style="padding-right:2%;"></span>สร้างเว็บบอร์ด</button>
+        <h3>เว็บบอร์ด</h3>
+        <h3 style="color:hotpink;">WEBBOARD</h3>
+    </div>
+    <div style="margin-left:2%;border:1px solid black;background-color:ghostwhite;width:96%;">
+        <button type="button" class="btn btn-success btn-sm" style="margin-top:1%;margin-right:1%;float:right;" (click)="GoAdminType();">ดูทั้งหมด</button>
+        <h3> ประกาศจาก ADMIN</h3>
+        <h4> รายละเอียด แอดมินประกาศ</h4>
+        <div class="กรอบกระทู้แอดมินวนลูป" style="margin-top:2%;margin-bottom:2%;">
+            <div *ngFor="let row of adminType" style="margin-left:2.5%;width:95%;margin-top:1%;margin-bottom:1%;border:1px solid black;background-color:ghostwhite;">
+                <button style="width:100%;background-color:#BEBEBE">
+                    <a style="text-decoration: none" (click)="descriptadmin(row.idAdminWebboard);">
+                        <div>
+                            <h3>{{row.headderWebboard}}</h3>
+                            <strong>ผู้ตั้งกระทู้ {{row.userName}}</strong>
+                        </div>
+                    </a>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div style="margin-bottom:1%;margin-top:2%;margin-left:2%;border:1px solid black;background-color:ghostwhite;width:96%;">
+        <button type="button" class="btn btn-success btn-sm" style="margin-top:1%;margin-right:1%;float:right;" (click)="GoAllType1();">ดูทั้งหมด</button>
+        <h3> ห้องไม่ลับของ นักเขียน นักวาด นักแปล</h3>
+        <h4> รายละเอียด สอบถามเรื่องเทคนิคการเขียน</h4>
+        <div class="กรอบนักเขียนแอดมินวนลูป" style="margin-top:2%;margin-bottom:2%;">
+            <div *ngFor="let row of type1" style="margin-left:2.5%;width:95%;margin-top:1%;margin-bottom:1%;border:1px solid black;background-color:ghostwhite;">
+                <button style="width:100%;background-color:#BEBEBE">
+                    <a style="text-decoration: none" (click)="descript(row.idWebboard);">
+                        <div>
+                            <h3>{{row.headderWebboard}}</h3>
+                            <strong>ผู้ตั้งกระทู้ {{row.penName}}</strong>
+                        </div>
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:1%;margin-top:2%;margin-left:2%;border:1px solid black;background-color:ghostwhite;width:96%;">
+        <button type="button" class="btn btn-success btn-sm" style="margin-top:1%;margin-right:1%;float:right;" (click)="GoAllType2();">ดูทั้งหมด</button>
+        <h3> ห้อง นิยาย&การ์ตูน</h3>
+        <h4> รายละเอียด สอบถามนิยาย</h4>
+        <div class="กรอบนักเขียนแอดมินวนลูป" style="margin-top:2%;margin-bottom:2%;">
+            <div *ngFor="let row of type2" style="margin-left:2.5%;width:95%;margin-top:1%;margin-bottom:1%;border:1px solid black;background-color:ghostwhite;">
+                <button style="width:100%;background-color:#BEBEBE">
+                    <a style="text-decoration: none" (click)="descript(row.idWebboard);">
+                        <div>
+                            <h3>{{row.headderWebboard}}</h3>
+                            <strong>ผู้ตั้งกระทู้ {{row.penName}}</strong>
+                        </div>
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom:1%;margin-top:2%;margin-left:2%;border:1px solid black;background-color:ghostwhite;width:96%;">
+        <button type="button" class="btn btn-success btn-sm" style="margin-top:1%;margin-right:1%;float:right;" (click)="GoAllType3();">ดูทั้งหมด</button>
+        <h3> พูดคุยเรื่องรักๆ</h3>
+        <h4> รายละเอียด อยากเพ้อก็มา</h4>
+        <div *ngFor="let row of type3" class="กรอบนักเขียนแอดมินวนลูป" style="margin-left:2.5%;width:95%;margin-top:1%;margin-bottom:1%;border:1px solid black;background-color:ghostwhite;">
+            <button style="width:100%;background-color:#BEBEBE">
+                <a style="text-decoration: none" (click)="descript(row.idWebboard);">
+                    <div>
+                        <h3>{{row.headderWebboard}}</h3>
+                        <strong>ผู้ตั้งกระทู้ {{row.penName}}</strong>
+                    </div>
+                </a>
+            </button>
+        </div>
+    </div>
+</div>

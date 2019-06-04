@@ -1,0 +1,64 @@
+<div style="width: 100%; margin-top: 25px;background-color:khaki;border:1px solid black;">
+  <div class="container" style="width:100%;">
+    <div class="input-group mb-2" style="margin-top:1%;margin-left:50%;width:50%;border-radius:20%;">
+      <div class="input-group-prepend" style="width:40px;">
+        <div class="input-group-text">
+          <span class="fa fa-search"></span>
+        </div>
+      </div>
+      <input type="text" [(ngModel)]="searchText" class="form-control" id="inlineFormInputGroup" placeholder="กรอกชื่อนิยาย หรือ ประเภทนิยาย หรือ ชื่อผู้แต่งนิยาย"
+        style="border-radius:0px 25px 25px 0px;">
+    </div>
+    <div class="div-niyayhit">
+   
+      <div class="row">
+        <div class="col-12">
+            <div *ngFor="let book of searchall | nametype: {nameFiction: searchText, typeBook:searchText, penname: searchText} | paginate: { itemsPerPage: 10, currentPage: p }; let i=index;">
+                <div class="div-book-left card mr-2">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-4">
+                        <div class="card-img" (click)="onClickService(book.idBook)" *ngIf="book.imgBook!=null" (click)="onClickService(book.idBook)">
+                                <img src="http://localhost:9999/imagebook/{{book.idBook}}/{{book.imgBook}}" >  
+
+                        </div>
+                        <div class="card-img" *ngIf="book.imgBook==null" (click)="onClickService(book.idBook)">
+                            <img src="./../../assets/img/book.png" >
+                        </div>
+                      </div>
+                      <div class="col-8">
+                        {{book.nameFiction}}
+                        <p>{{book.penname}} | {{book.typeBook}}</p>
+                        <hr>
+                        <a routerLink="" (click)="onClickService(book.idBook)" >อ่านเพิ่มเติม</a>
+                    </div>
+
+                    <div  class="col-12">
+                      <div class="row">
+                          <div  class="col-12">
+                        <hr>
+                        <div class="row">
+                          <div class="col-6">
+                            <i class="fas fa-eye"></i> {{book.sum}}
+                          </div>
+                          <div class="col-6">
+                            <i class="fas fa-calendar-alt"></i> {{book.create_day}}
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+        </div>
+      </div>
+ 
+      
+    </div>
+  </div>
+</div>
+<div >
+    <pagination-controls class="my-pagination" (pageChange)="p = $event" ></pagination-controls>
+</div>
